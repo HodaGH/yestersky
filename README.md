@@ -32,28 +32,6 @@ OpenSkyScraper provides some OpenSky data. Other data can be found at [https://o
 
 Confluent is a wrapper for Kafka that is used with Kafka-connect to connect Kafka to Cassandra. It also bundles Kafka Streams for quick deployment. Once the technologies are installed, configured, connected, and running, messages are sent to Cassandra. Queries on the data are made by the Web UI contained in query_out. The directory structure is exactly that which is needed for deployment in Tomcat7. In particular, the package queryAirData contains servlet GetQuery.java that does all of the heavy lifting in terms of connecting the frontend to Cassandra.
 
-yestersky
-├── data_in
-|   ├── processAirData
-|	|    ├── FlightState.java
-|   |    └── ReadOpenSkyFile.java
-|	├── OpenSkyScraper.java
-|	├── getJSONfromS3.sh
-|	└── readCSV.sh
-├── query_out
-|   └── webapps
-|       └── ROOT
-|           ├── Leaflet.heat
-|           |   └── (Leaflet files)
-|           ├── WEB-INF
-|           |   ├── classes
-|           |   |   └── queryAirData
-|           |   |       ├── CassandraConnector.java
-|           |   |       └── GetQuery.java
-|           |   └── web.xml
-|           └── demo
-|               └── (sample datapoints)
-└── img
-    └── (images)
-	
+
+<img src="img/repoStructure.png">
 	
