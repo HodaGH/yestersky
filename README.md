@@ -30,8 +30,8 @@ To avoid overtrafficking OpenSky, I stored sample data and occasional live scrap
 
 <img src="img/repoStructure.png">
 
-OpenSkyScraper.java provides some OpenSky data. Other data can be found at [https://opensky-network.org/datasets/states/](https://opensky-network.org/datasets/states/). Files are found and read by getJSONfromS3.sh or readCSV.sh, which both execute ReadOpenSkyFile.java in the package processAirData. This java file converts the data to messages and sends them to Kafka. Part of the conversion is AVRO serialization.
+*OpenSkyScraper.java* provides some OpenSky data. Other data can be found at [https://opensky-network.org/datasets/states/](https://opensky-network.org/datasets/states/). Files are found and read by *getJSONfromS3.sh* or *readCSV.sh*, depending on whether they are batch files or smaller scrapes, and both execute *ReadOpenSkyFile.java* in the Java package *processAirData*. This java file converts the data to messages and sends them to Kafka. Part of the conversion is AVRO serialization.
 
-Confluent is a wrapper for Kafka that is used with Kafka-connect to connect Kafka to Cassandra. It also bundles Kafka Streams for quick deployment. Once the technologies are installed, configured, connected, and running, messages are sent to Cassandra. Queries on the data are made by the Web UI contained in query_out. The directory structure is exactly that which is needed for deployment in Tomcat7. In particular, the package queryAirData contains servlet GetQuery.java that does all of the heavy lifting in terms of connecting the frontend to Cassandra.
+Confluent is a wrapper for Kafka that is used with Kafka-connect to connect Kafka to Cassandra. It also bundles Kafka Streams for quick deployment. Once the technologies are installed, configured, connected, and running; messages are sent to Cassandra. Queries on the data are made by the Web UI contained in *query_out*. The directory structure is exactly that which is needed for deployment in Tomcat7. In particular, the Java package *queryAirData* contains servlet *GetQuery.java* that does all of the heavy lifting in terms of connecting the frontend to Cassandra.
 
 	
